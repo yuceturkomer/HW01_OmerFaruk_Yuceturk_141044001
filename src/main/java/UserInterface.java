@@ -23,5 +23,6 @@ public interface UserInterface {
 
     boolean addTutor(User theTutor);
 
+    boolean removeTutorByNumber(int tutorNumber);
 
 }
