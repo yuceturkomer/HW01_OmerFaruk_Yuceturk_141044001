@@ -9,9 +9,17 @@ public interface UserInterface {
 
     int getNumber();
 
+    String getMail();
+
+    void setMail(String mail);
+
     void setNumber(int number);
 
     void listUserCourses();
+
+}
+
+/* ***These methods gonna be moved to other classes***
 
     boolean addUser(User theUser);
 
@@ -23,6 +31,4 @@ public interface UserInterface {
 
     boolean addTutor(User theTutor);
 
-    boolean removeTutorByNumber(int tutorNumber);
-
-}
+    boolean removeTutorByNumber(int tutorNumber);*/
