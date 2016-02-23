@@ -3,5 +3,5 @@ package com.yuceturkomer.hw01;
 /**
  * Created by ömer on 21.2.2016.
  */
-public class Homework extends Assignment {
+public class Homework extends AssignmentStudent {
 }
