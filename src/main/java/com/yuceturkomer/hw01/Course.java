@@ -1,6 +1,5 @@
 package com.yuceturkomer.hw01;
 
-import javax.print.Doc;
 import java.lang.*;
 import java.lang.System;
 import java.util.ArrayList;

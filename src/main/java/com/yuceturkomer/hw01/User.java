@@ -6,9 +6,9 @@ package com.yuceturkomer.hw01;
 public abstract class User implements UserInterface {
     private String nameSurname;
     private String mail;
-    protected CourseSystem sysRef;
+    protected CourseAutomationSystem sysRef;
 
-    public User(String nameSurname, String mail,CourseSystem sysRef) {
+    public User(String nameSurname, String mail,CourseAutomationSystem sysRef) {
         this.nameSurname = nameSurname;
         this.mail = mail;
         this.sysRef = sysRef;

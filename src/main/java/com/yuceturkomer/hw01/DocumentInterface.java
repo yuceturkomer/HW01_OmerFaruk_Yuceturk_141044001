@@ -5,7 +5,8 @@ package com.yuceturkomer.hw01;
  */
 public interface DocumentInterface {
     String getDocName();
+
     void setDocName(String docName);
+
     String getDocType();
-    void setDocType(String docType);
 }

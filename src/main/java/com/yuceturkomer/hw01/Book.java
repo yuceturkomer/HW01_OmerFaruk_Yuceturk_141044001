@@ -5,4 +5,8 @@ package com.yuceturkomer.hw01;
  */
 public class Book extends Document {
 
+    public Book(String docName) {
+        super(docName);
+        docType=getClass().getSimpleName();
+    }
 }

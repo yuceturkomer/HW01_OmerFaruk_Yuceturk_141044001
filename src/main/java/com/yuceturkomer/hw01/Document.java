@@ -4,12 +4,14 @@ package com.yuceturkomer.hw01;
  * Created by ömer on 21.2.2016.
  */
 public abstract class Document implements DocumentInterface {
-    private String docType;
     private String docName;
+    protected String docType;
 
-    public Document(String docName, String docType){
+    public Document(String docName){
         setDocName(docName);
-        setDocType(docType);
+    }
+    public String getDocType(){
+        return docType;
     }
 
     public String getDocName() {
@@ -20,11 +22,8 @@ public abstract class Document implements DocumentInterface {
         this.docName = docName;
     }
 
-    public String getDocType() {
-        return docType;
-    }
-
-    public void setDocType(String docType) {
-        this.docType = docType;
+    @Override
+    public String toString() {
+        return "Document" + getDocType() +getDocName();
     }
 }
