@@ -9,8 +9,8 @@ import java.util.ArrayList;
 //Test comment123
 
 public class CourseAutomationSystem {
-    private ArrayList<Course> courseArrayList = new ArrayList<Course>();
-    private ArrayList<User> userArrayList = new ArrayList<User>();
+    ArrayList<Course> courseArrayList = new ArrayList<Course>();
+    ArrayList<User> userArrayList = new ArrayList<User>();
 
     boolean addUser(User userToAdd) throws UserAlreadyExistsException {
         if (userArrayList.indexOf(userToAdd) != -1)
@@ -23,6 +23,14 @@ public class CourseAutomationSystem {
         if (!userArrayList.remove(userToRemove))
             throw new NoSuchUserException();
         return userToRemove;
+    }
+
+    User getUserAtIndex(int index) throws IndexOutOfBoundsException {
+        return userArrayList.get(index);
+    }
+
+    int userArrSize() {
+        return userArrayList.size();
     }
 
     boolean addCourse(Course courseToAdd) throws CourseAlreadyExsistsException {
@@ -38,4 +46,11 @@ public class CourseAutomationSystem {
         return courseToRemove;
     }
 
+    Course getCourseAtIndex(int index) throws IndexOutOfBoundsException {
+        return courseArrayList.get(index);
+    }
+
+    int courseArrSize() {
+        return courseArrayList.size();
+    }
 }

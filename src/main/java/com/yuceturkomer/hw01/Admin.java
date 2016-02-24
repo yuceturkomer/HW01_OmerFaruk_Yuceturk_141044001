@@ -21,6 +21,11 @@ public class Admin extends User {
 
     @Override
     public void listUserCourses() {
+        System.out.println("This admin ("+ toString() +
+                ") has permission upon all courses and they are listed below :");
+        for(int i = 0 ; i < sysRef.userArrSize() ; ++i){
+            System.out.println(sysRef.getUserAtIndex(i).toString());
+        }
 
     }
 }

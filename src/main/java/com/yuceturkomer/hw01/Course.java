@@ -86,27 +86,6 @@ public class Course {
 
     @Override
     public String toString() {
-        String toReturn="The students for course: " + getCourseName() + "\n";
-        for (int i = 0; i < studentArrayList.size(); ++i) {
-            toReturn += " " + studentArrayList.get(i).toString();
-        }
-        toReturn += "The tutors for course: " + getCourseName() + "\n";
-        for (int i = 0; i < tutorArrayList.size(); ++i) {
-            toReturn += " " + tutorArrayList.get(i).toString();
-        }
-        toReturn += "The teachers for course: " + getCourseName() + "\n";
-        for (int i = 0; i < teacherArrayList.size(); ++i) {
-            toReturn += " " + teacherArrayList.get(i).toString();
-        }
-        toReturn += "The documents for course: " + getCourseName() + "\n";
-        for (int i = 0; i < documentArrayList.size(); ++i) {
-            toReturn += " " + documentArrayList.get(i).toString();
-        }
-        toReturn += "The assignments for course: " + getCourseName() + "\n";
-        for (int i = 0; i < teacherAssArrayList.size(); ++i) {
-            toReturn += " " + teacherAssArrayList.get(i).toString();
-        }
-        return toReturn;
-
+        return "Course name : " + getCourseName() + "Old course : " + Boolean.toString(isOldCourse());
     }
 }
