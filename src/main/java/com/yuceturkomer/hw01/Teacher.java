@@ -7,22 +7,26 @@ public class Teacher extends User {
     public Teacher(String nameSurname, String mail, CourseAutomationSystem sysRef) {
         super(nameSurname, mail, sysRef);
     }
+
     public void addUser(User userToAdd) throws UserAlreadyExistsException {
-        if(sysRef.userArrayList.contains(userToAdd))
+        if (sysRef.userArrayList.contains(userToAdd))
             throw new UserAlreadyExistsException();
         sysRef.userArrayList.add(userToAdd);
     }
-    public User removeUser(User userToRemove) throws NoSuchUserException{
-        if(!sysRef.userArrayList.contains(userToRemove))
+
+    public User removeUser(User userToRemove) throws NoSuchUserException {
+        if (!sysRef.userArrayList.contains(userToRemove))
             throw new NoSuchUserException();
         sysRef.userArrayList.remove(userToRemove);
         return userToRemove;
     }
+
     public void addCourse(Course courseToAdd) throws CourseAlreadyExsistsException {
-        if(sysRef.courseArrayList.contains(courseToAdd))
+        if (sysRef.courseArrayList.contains(courseToAdd))
             throw new CourseAlreadyExsistsException();
         sysRef.courseArrayList.add(courseToAdd);
     }
+
     public Course removeCourse(Course courseToRemove) throws NoSuchCourseException {
         if (!sysRef.courseArrayList.remove(courseToRemove))
             throw new NoSuchCourseException();
@@ -31,10 +35,10 @@ public class Teacher extends User {
 
     public void addDocument(Document docToAdd, Course courseThatAdded)
             throws DocumentAlreadyExistsException, NoSuchCourseException {
-        if(!sysRef.courseArrayList.contains(courseThatAdded))
+        if (!sysRef.courseArrayList.contains(courseThatAdded))
             throw new NoSuchCourseException();
         int courseIndex = sysRef.courseArrayList.indexOf(courseThatAdded);
-        if(sysRef.courseArrayList.get(courseIndex).documentArrayList.contains(docToAdd))
+        if (sysRef.courseArrayList.get(courseIndex).documentArrayList.contains(docToAdd))
             throw new DocumentAlreadyExistsException();
 
         sysRef.courseArrayList.get(courseIndex).documentArrayList.add(docToAdd);
@@ -42,14 +46,36 @@ public class Teacher extends User {
 
     public Document removeDocument(Document docToRemove, Course courseDeletedFrom)
             throws NoSuchCourseException, NoSuchDocumentException {
-        if(!sysRef.courseArrayList.contains(courseDeletedFrom))
+        if (!sysRef.courseArrayList.contains(courseDeletedFrom))
             throw new NoSuchCourseException();
         int courseIndex = sysRef.courseArrayList.indexOf(courseDeletedFrom);
-        if(!sysRef.courseArrayList.get(courseIndex).documentArrayList.contains(docToRemove))
+        if (!sysRef.courseArrayList.get(courseIndex).documentArrayList.contains(docToRemove))
             throw new NoSuchDocumentException();
 
         sysRef.courseArrayList.get(courseIndex).documentArrayList.remove(docToRemove);
         return docToRemove;
+    }
+
+    public void addAssignment(AssignmentTeacher assigToAdd, Course courseThatAdded)
+            throws NoSuchCourseException, AssignmentAlreadyExistsException {
+        if (!sysRef.courseArrayList.contains(courseThatAdded))
+            throw new NoSuchCourseException();
+        int courseIndex = sysRef.courseArrayList.indexOf(courseThatAdded);
+        if (sysRef.courseArrayList.get(courseIndex).teacherAssArrayList.contains(assigToAdd))
+            throw new AssignmentAlreadyExistsException();
+        sysRef.courseArrayList.get(courseIndex).teacherAssArrayList.add(assigToAdd);
+
+    }
+
+    public AssignmentTeacher removeAssignment(AssignmentTeacher assigToRemove, Course courseRemovedFrom)
+            throws NoSuchCourseException, NoSuchTeacherAssignmentException {
+        if (!sysRef.courseArrayList.contains(courseRemovedFrom))
+            throw new NoSuchCourseException();
+        int courseIndex = sysRef.courseArrayList.indexOf(courseRemovedFrom);
+        if (sysRef.courseArrayList.get(courseIndex).teacherAssArrayList.contains(assigToRemove))
+            throw new NoSuchTeacherAssignmentException();
+        sysRef.courseArrayList.get(courseIndex).teacherAssArrayList.remove(assigToRemove);
+        return assigToRemove;
     }
 
     @Override
