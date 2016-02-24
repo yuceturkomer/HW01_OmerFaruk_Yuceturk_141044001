@@ -20,6 +20,7 @@ public interface UserInterface {
     void listUserCourses();
 
 }
+
 /*
     ***These methods gonna be moved to other classes***
 

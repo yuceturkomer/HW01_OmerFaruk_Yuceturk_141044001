@@ -5,5 +5,4 @@ package com.yuceturkomer.hw01;
  */
 public class CourseAutomationSystemMain {
 
-
 }

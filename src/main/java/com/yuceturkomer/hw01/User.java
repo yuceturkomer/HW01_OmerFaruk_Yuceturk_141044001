@@ -31,6 +31,7 @@ public abstract class User implements UserInterface {
     }
 
 
+
     public abstract void setNumber(int number);
 
     public abstract int getNumber();
