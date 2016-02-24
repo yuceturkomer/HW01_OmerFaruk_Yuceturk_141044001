@@ -6,5 +6,5 @@ package com.yuceturkomer.hw01;
 
 //Test comment123
 
-public class System {
+public class CourseSystem {
 }

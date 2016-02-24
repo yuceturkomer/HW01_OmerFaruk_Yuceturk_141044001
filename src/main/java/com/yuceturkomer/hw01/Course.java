@@ -1,5 +1,6 @@
 package com.yuceturkomer.hw01;
 
+import javax.print.Doc;
 import java.lang.*;
 import java.lang.System;
 import java.util.ArrayList;
@@ -12,7 +13,7 @@ public class Course {
     ArrayList<Tutor> tutorArrayList = new ArrayList<Tutor>();
     ArrayList<Student> studentArrayList = new ArrayList<Student>();
     ArrayList<Document> documentArrayList = new ArrayList<Document>();
-    ArrayList<AssignmentTeacher> teacherArrayList = new ArrayList<AssignmentTeacher>();
+    ArrayList<AssignmentTeacher> teacherAssArrayList = new ArrayList<AssignmentTeacher>();
 
     private String courseName;
     private boolean oldCourse;
@@ -41,13 +42,32 @@ public class Course {
         this.courseName = courseName;
     }
 
-    public void listUsers() {/*Will be filled*/}
+    public void listUsers() {
+        System.out.println("The list of students for course: " + courseName);
+        for (int i = 0; i < studentArrayList.size(); ++i) {
+            System.out.println(studentArrayList.get(i).toString());
+        }
+        System.out.println("The list of teachers for course: " + courseName);
+        for (int i = 0; i < teacherArrayList.size(); ++i) {
+            System.out.println(teacherArrayList.get(i).toString());
+        }
+        System.out.println("The list of tutors for course: " + courseName);
+        for (int i = 0; i < tutorArrayList.size(); ++i) {
+            System.out.println(tutorArrayList.get(i).toString());
+        }
+    }
 
-    public void listDocuments() {/*Will be filled*/}
+    public void listDocuments() {
+        System.out.println("The list of documents for course: " + courseName);
+        for (int i = 0; i < documentArrayList.size(); ++i) {
+            System.out.println(documentArrayList.get(i).toString());
+        }
+    }
 
     public void listAssignments() {
-        for (AssignmentTeacher iter : teacherArrayList) {
-
+        System.out.println("The list of assignments for course: " + courseName);
+        for (int i = 0; i < teacherAssArrayList.size(); ++i) {
+            System.out.println(teacherAssArrayList.get(i).toString());
         }
     }
 
