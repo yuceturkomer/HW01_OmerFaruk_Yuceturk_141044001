@@ -23,14 +23,14 @@ public class Teacher extends User {
             throw new CourseAlreadyExsistsException();
         sysRef.courseArrayList.add(courseToAdd);
     }
-    Course removeCourse(Course courseToRemove) throws NoSuchCourseException {
+    public Course removeCourse(Course courseToRemove) throws NoSuchCourseException {
         if (!sysRef.courseArrayList.remove(courseToRemove))
             throw new NoSuchCourseException();
         return courseToRemove;
     }
 
-    public void addDocument(Document docToAdd,
-                            Course courseThatAdded) throws DocumentAlreadyExistsException, NoSuchCourseException {
+    public void addDocument(Document docToAdd, Course courseThatAdded)
+            throws DocumentAlreadyExistsException, NoSuchCourseException {
         if(!sysRef.courseArrayList.contains(courseThatAdded))
             throw new NoSuchCourseException();
         int courseIndex = sysRef.courseArrayList.indexOf(courseThatAdded);
@@ -38,6 +38,18 @@ public class Teacher extends User {
             throw new DocumentAlreadyExistsException();
 
         sysRef.courseArrayList.get(courseIndex).documentArrayList.add(docToAdd);
+    }
+
+    public Document removeDocument(Document docToRemove, Course courseDeletedFrom)
+            throws NoSuchCourseException, NoSuchDocumentException {
+        if(!sysRef.courseArrayList.contains(courseDeletedFrom))
+            throw new NoSuchCourseException();
+        int courseIndex = sysRef.courseArrayList.indexOf(courseDeletedFrom);
+        if(!sysRef.courseArrayList.get(courseIndex).documentArrayList.contains(docToRemove))
+            throw new NoSuchDocumentException();
+
+        sysRef.courseArrayList.get(courseIndex).documentArrayList.remove(docToRemove);
+        return docToRemove;
     }
 
     @Override
