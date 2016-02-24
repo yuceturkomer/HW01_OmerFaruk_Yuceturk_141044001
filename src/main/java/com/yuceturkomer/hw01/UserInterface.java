@@ -9,13 +9,13 @@ public interface UserInterface {
 
     void setNameSurname(String nameSurname);
 
-    int getNumber();
+    int getNumber() throws NoSuchVariableToWorkException;
 
     String getMail();
 
     void setMail(String mail);
 
-    void setNumber(int number);
+    void setNumber(int number) throws NoSuchVariableToWorkException;
 
     void listUserCourses();
 

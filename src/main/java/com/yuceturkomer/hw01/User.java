@@ -8,7 +8,7 @@ public abstract class User implements UserInterface {
     private String mail;
     protected CourseAutomationSystem sysRef;
 
-    public User(String nameSurname, String mail,CourseAutomationSystem sysRef) {
+    public User(String nameSurname, String mail, CourseAutomationSystem sysRef) {
         this.nameSurname = nameSurname;
         this.mail = mail;
         this.sysRef = sysRef;
@@ -31,10 +31,29 @@ public abstract class User implements UserInterface {
     }
 
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o)
+            return true;
+        if (!(o instanceof User))
+            return false;
 
-    public abstract void setNumber(int number);
+        User user = (User) o;
 
-    public abstract int getNumber();
+        if (!getNameSurname().equals(user.getNameSurname()))
+            return false;
+        return getMail().equals(user.getMail());
+    }
+
+    @Override
+    public String toString() {
+        return "User status: "+ getClass().getSimpleName() +" User Name Surname: " + getNameSurname()
+                + " User mail: " + getMail();
+    }
+
+    public abstract void setNumber(int number) throws NoSuchVariableToWorkException;
+
+    public abstract int getNumber() throws NoSuchVariableToWorkException;
 
     public abstract void listUserCourses();
 
