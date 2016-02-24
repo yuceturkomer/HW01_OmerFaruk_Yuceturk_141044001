@@ -17,11 +17,12 @@ public class Course {
     private String courseName;
     private boolean oldCourse;
 
-    public Course(String courseName, Teacher... courseTeacher) {
+    public Course(String courseName,boolean oldCourse, Teacher... courseTeacher) {
         this.courseName = courseName;
         for (Teacher teacher : courseTeacher) {
             teacherArrayList.add(teacher);
         }
+        setOldCourse(oldCourse);
     }
 
     public boolean isOldCourse() {
