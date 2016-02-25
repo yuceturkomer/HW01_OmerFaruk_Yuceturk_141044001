@@ -1,7 +1,8 @@
 package com.yuceturkomer.hw01;
 
 /**
- * Created by ömer on 21.2.2016.
+ * The document class which implemets DocumentInterface. It is an abstract class and implements some of interface's
+ * methods.
  */
 public abstract class Document implements DocumentInterface {
     private String docName;
@@ -9,7 +10,7 @@ public abstract class Document implements DocumentInterface {
 
     /**
      * Document constructor
-     * @param docName
+     * @param docName the Document name to be set
      */
     public Document(String docName){
         setDocName(docName);
@@ -38,8 +39,7 @@ public abstract class Document implements DocumentInterface {
 
         Document document = (Document) o;
 
-        if (!getDocName().equals(document.getDocName())) return false;
-        return getDocType().equals(document.getDocType());
+        return getDocName().equals(document.getDocName()) && getDocType().equals(document.getDocType());
 
     }
 }

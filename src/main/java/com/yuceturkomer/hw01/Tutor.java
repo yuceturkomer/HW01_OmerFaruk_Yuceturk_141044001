@@ -1,7 +1,7 @@
 package com.yuceturkomer.hw01;
 
 /**
- * Created by ömer on 21.2.2016.
+ * The tutor class which extends Student class (Student is a subclass of User).
  */
 public class Tutor extends Student {
     public Tutor(String nameSurname, String mail, CourseAutomationSystem sysRef, int studentNumber) {
