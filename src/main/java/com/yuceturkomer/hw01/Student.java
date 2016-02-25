@@ -6,11 +6,31 @@ package com.yuceturkomer.hw01;
 public class Student extends User {
     private int studentNumber;
 
+    /**
+     * This Student constructor firstly calls its superclass' constructor. In
+     * addition this constructor also sets student number as well.
+     *
+     * @param nameSurname   Name and surname of the student
+     * @param mail          Mail address of the student
+     * @param sysRef        The system reference that soon will be used in methods
+     * @param studentNumber The number of student
+     */
     public Student(String nameSurname, String mail, CourseAutomationSystem sysRef, int studentNumber) {
         super(nameSurname, mail, sysRef);
         this.studentNumber = studentNumber;
     }
 
+    /**
+     * With this method, student can send StudentAssignment to the TeacherAssignment. If there
+     * is no such course as sent with parameters, it will throw NoSuchCourseException. If there is not such a
+     * TeacherAssignment then it will throw NoSuchTeacherAssignmentException
+     *
+     * @param course       the Course object that assignment will be sent
+     * @param teacherAssig the TeacherAssignment object that assignment will be sent
+     * @param assigToSend  the assignment to send
+     * @throws NoSuchCourseException            If there is no such course as sent with parameters
+     * @throws NoSuchTeacherAssignmentException f there is not such a TeacherAssignment
+     */
     public void sendAssignment(Course course,
                                AssignmentTeacher teacherAssig,
                                AssignmentStudent assigToSend) throws NoSuchCourseException, NoSuchTeacherAssignmentException {
