@@ -1,7 +1,7 @@
 package com.yuceturkomer.hw01;
 
 /**
- * Created by ömer on 21.2.2016.
+ * The Student class extends User Class
  */
 public class Student extends User {
     private int studentNumber;
@@ -45,6 +45,17 @@ public class Student extends User {
                 get(teacherAssigIndex).assignmentStudentArrayList.add(assigToSend);
     }
 
+    /**
+     * This method allows student to remove assignment that he assigned.
+     *
+     * @param course        The Course object which StudentAssignment belongs
+     * @param teacherAssig  The TeacherAssignment object which StudentAssignment belongs
+     * @param assigToDelete The desired object to delete
+     * @return Returns deleted objects reference
+     * @throws NoSuchCourseException            If there is no such Course
+     * @throws NoSuchTeacherAssignmentException If there is no such TeacherAssignment
+     * @throws NoSuchStudentAssignmentException If there is no such StudentAssignment
+     */
     public AssignmentStudent deleteAssignment(Course course,
                                               AssignmentTeacher teacherAssig,
                                               AssignmentStudent assigToDelete) throws NoSuchCourseException, NoSuchTeacherAssignmentException, NoSuchStudentAssignmentException {
@@ -64,6 +75,9 @@ public class Student extends User {
         return assigToDelete;
     }
 
+    /**
+     * Prints the list of the documents that student can access
+     */
     public void listUserDocuments() {
         System.out.println("The list of documents " +
                 "which this student (" + toString() + ") can view");
@@ -77,16 +91,28 @@ public class Student extends User {
     }
 
 
-    @Override
+    /**
+     * Number setter
+     *
+     * @param number Number to be set     *
+     */
     public void setNumber(int number) {
         studentNumber = number;
     }
 
+    /**
+     * School number getter
+     *
+     * @return Number of that student     *
+     */
     @Override
     public int getNumber() {
         return studentNumber;
     }
 
+    /**
+     * Lists the users all courses
+     */
     @Override
     public void listUserCourses() {
         System.out.println("This student (" + toString() + ") have been" +
@@ -101,11 +127,22 @@ public class Student extends User {
         }
     }
 
+    /**
+     * toString override
+     *
+     * @return Expected String value
+     */
     @Override
     public String toString() {
         return super.toString() + " User number : " + getNumber();
     }
 
+    /**
+     * equals override
+     *
+     * @param o object that'll be beingg compared
+     * @return Returns true if its equal
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

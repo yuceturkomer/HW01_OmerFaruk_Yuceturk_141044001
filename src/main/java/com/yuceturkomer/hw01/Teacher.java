@@ -3,13 +3,20 @@ package com.yuceturkomer.hw01;
 import javax.naming.NoPermissionException;
 
 /**
- * Created by ömer on 21.2.2016.
+ * The Teacher class extends User classs
  */
 public class Teacher extends User {
     public Teacher(String nameSurname, String mail, CourseAutomationSystem sysRef) {
         super(nameSurname, mail, sysRef);
     }
 
+    /**
+     * User adding method for teacher.
+     *
+     * @param userToAdd The user to be added
+     * @throws UserAlreadyExistsException If there already is this user in the list then exception thrown
+     * @throws NoPermissionException      Teacher cannot add/remove admin. If User is an instanceof Admin then exception thrown
+     */
     public void addUser(User userToAdd) throws UserAlreadyExistsException, NoPermissionException {
         if (userToAdd instanceof Admin)
             throw new NoPermissionException("Cannot add admin\n");
@@ -18,6 +25,14 @@ public class Teacher extends User {
         sysRef.userArrayList.add(userToAdd);
     }
 
+    /**
+     * Method to remove user
+     *
+     * @param userToRemove Desired user to remove
+     * @return Returns the Object that just removed
+     * @throws NoSuchUserException   If there is bo such user
+     * @throws NoPermissionException Teacher cannot add/remove admin. If User is an instanceof Admin then exception thrown
+     */
     public User removeUser(User userToRemove) throws NoSuchUserException, NoPermissionException {
         if (userToRemove instanceof Admin)
             throw new NoPermissionException("Cannot remove admin\n");
@@ -27,18 +42,39 @@ public class Teacher extends User {
         return userToRemove;
     }
 
+    /**
+     * Method to add courses
+     *
+     * @param courseToAdd Course be added
+     * @throws CourseAlreadyExsistsException If there is already such course
+     */
     public void addCourse(Course courseToAdd) throws CourseAlreadyExsistsException {
         if (sysRef.courseArrayList.contains(courseToAdd))
             throw new CourseAlreadyExsistsException();
         sysRef.courseArrayList.add(courseToAdd);
     }
 
+    /**
+     * Removing the course
+     *
+     * @param courseToRemove Course to be removed
+     * @return returns removed objects reference
+     * @throws NoSuchCourseException If there is not the Course we look for
+     */
     public Course removeCourse(Course courseToRemove) throws NoSuchCourseException {
         if (!sysRef.courseArrayList.remove(courseToRemove))
             throw new NoSuchCourseException();
         return courseToRemove;
     }
 
+    /**
+     * Method to add a document
+     *
+     * @param docToAdd        Document type object to be added
+     * @param courseThatAdded Which course we add
+     * @throws DocumentAlreadyExistsException if there is such doc already
+     * @throws NoSuchCourseException          if there is no such course
+     */
     public void addDocument(Document docToAdd, Course courseThatAdded)
             throws DocumentAlreadyExistsException, NoSuchCourseException {
         if (!sysRef.courseArrayList.contains(courseThatAdded))
@@ -50,6 +86,15 @@ public class Teacher extends User {
         sysRef.courseArrayList.get(courseIndex).documentArrayList.add(docToAdd);
     }
 
+    /**
+     * Method to remove a doc
+     *
+     * @param docToRemove       Desired doc to remove
+     * @param courseDeletedFrom Course object that deleted from
+     * @return Returns removed object's reference
+     * @throws NoSuchCourseException   If there is no such course
+     * @throws NoSuchDocumentException If there is no such document
+     */
     public Document removeDocument(Document docToRemove, Course courseDeletedFrom)
             throws NoSuchCourseException, NoSuchDocumentException {
         if (!sysRef.courseArrayList.contains(courseDeletedFrom))
@@ -62,6 +107,14 @@ public class Teacher extends User {
         return docToRemove;
     }
 
+    /**
+     * Method to create an assignment. Uses AssignmentTeacher
+     *
+     * @param assigToAdd      The assignment detail inside the package
+     * @param courseThatAdded The course that being added
+     * @throws NoSuchCourseException            If there is no course like that
+     * @throws AssignmentAlreadyExistsException If there is already an assignment like that
+     */
     public void addAssignment(AssignmentTeacher assigToAdd, Course courseThatAdded)
             throws NoSuchCourseException, AssignmentAlreadyExistsException {
         if (!sysRef.courseArrayList.contains(courseThatAdded))
@@ -73,6 +126,15 @@ public class Teacher extends User {
 
     }
 
+    /**
+     * Removing the assignment which teacher gave
+     *
+     * @param assigToRemove     the assignment wihch will be removed
+     * @param courseRemovedFrom the assignments removed from here
+     * @return removed object's reference
+     * @throws NoSuchCourseException            If there is no such Course
+     * @throws NoSuchTeacherAssignmentException If there is no such AssignmentTeacher
+     */
     public AssignmentTeacher removeAssignment(AssignmentTeacher assigToRemove, Course courseRemovedFrom)
             throws NoSuchCourseException, NoSuchTeacherAssignmentException {
         if (!sysRef.courseArrayList.contains(courseRemovedFrom))
@@ -84,16 +146,31 @@ public class Teacher extends User {
         return assigToRemove;
     }
 
+    /**
+     * Number setter
+     *
+     * @param number Number to be set
+     * @throws NoSuchVariableToWorkException If has no data field of number, exception threw
+     */
     @Override
     public void setNumber(int number) throws NoSuchVariableToWorkException {
         throw new NoSuchVariableToWorkException();
     }
 
+    /**
+     * School number getter
+     *
+     * @return Number of that student
+     * @throws NoSuchVariableToWorkException If there is no number field for user this'll be thrown
+     */
     @Override
     public int getNumber() throws NoSuchVariableToWorkException {
         throw new NoSuchVariableToWorkException();
     }
 
+    /**
+     * Lists the teacher's courses
+     */
     @Override
     public void listUserCourses() {
         System.out.println("This teacher (" + toString() +
