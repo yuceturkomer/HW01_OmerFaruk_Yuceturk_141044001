@@ -68,6 +68,67 @@ public class Teacher extends User {
     }
 
     /**
+     * Method to add student to the specified class.
+     *
+     * @param studentToAdd The Student to be added
+     * @param toCourse     The Course to be added to
+     * @throws UserAlreadyExistsException If there already is such user
+     */
+    public void addStudentToCourse(Student studentToAdd, Course toCourse) throws UserAlreadyExistsException {
+        if (sysRef.courseArrayList.get(sysRef.courseArrayList.indexOf(toCourse)).studentArrayList.contains(studentToAdd))
+            throw new UserAlreadyExistsException();
+        sysRef.courseArrayList.get(sysRef.courseArrayList.indexOf(toCourse)).studentArrayList.add(studentToAdd);
+    }
+
+    /**
+     * Method to remove student from the specified class.
+     *
+     * @param studentToRemove The Student to be removed
+     * @param fromCourse      The Student to be removed from
+     * @return Returns the removed Student's reference
+     * @throws NoSuchUserException If there is no such user
+     */
+    public Student removeStudentFromCourse(Student studentToRemove, Course fromCourse) throws NoSuchUserException {
+        if (!sysRef.courseArrayList.
+                get(sysRef.courseArrayList.indexOf(fromCourse)).studentArrayList.contains(studentToRemove))
+            throw new NoSuchUserException();
+        sysRef.courseArrayList.
+                get(sysRef.courseArrayList.indexOf(fromCourse)).studentArrayList.remove(studentToRemove);
+        return studentToRemove;
+    }
+
+    /**
+     * Method to add tutor to the specified class.
+     *
+     * @param tutorToAdd The Tutor to be added
+     * @param toCourse   The Course to be added to
+     * @throws UserAlreadyExistsException If there already is such user
+     */
+    public void addTutorToCourse(Tutor tutorToAdd, Course toCourse) throws UserAlreadyExistsException {
+        if (sysRef.courseArrayList.get(sysRef.courseArrayList.indexOf(toCourse)).tutorArrayList.contains(tutorToAdd))
+            throw new UserAlreadyExistsException();
+        sysRef.courseArrayList.get(sysRef.courseArrayList.indexOf(toCourse)).tutorArrayList.add(tutorToAdd);
+    }
+
+    /**
+     * Method to remove tutor from the specified class.
+     *
+     * @param tutorToRemove The Tutor to be removed
+     * @param fromCourse      The Tutor to be removed from
+     * @return Returns the removed Tutor's reference
+     * @throws NoSuchUserException If there is no such user
+     */
+    public Tutor removeTutorFromCourse(Tutor tutorToRemove, Course fromCourse) throws NoSuchUserException {
+        if (!sysRef.courseArrayList.
+                get(sysRef.courseArrayList.indexOf(fromCourse)).tutorArrayList.contains(tutorToRemove))
+            throw new NoSuchUserException();
+        sysRef.courseArrayList.
+                get(sysRef.courseArrayList.indexOf(fromCourse)).tutorArrayList.remove(tutorToRemove);
+        return tutorToRemove;
+    }
+
+
+    /**
      * Method to add a document
      *
      * @param docToAdd        Document type object to be added
