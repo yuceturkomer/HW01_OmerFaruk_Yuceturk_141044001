@@ -1,7 +1,8 @@
 package com.yuceturkomer.hw01;
 
 /**
- * Created by ömer on 25.2.2016.
+ * Can be used if there is no such document as wanted
  */
+
 public class NoSuchDocumentException extends Exception {
 }

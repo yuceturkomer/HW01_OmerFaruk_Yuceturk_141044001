@@ -1,7 +1,7 @@
 package com.yuceturkomer.hw01;
 
 /**
- * Created by ömer on 24.2.2016.
+ * Can be used if there is no such user as wanted
  */
 public class NoSuchUserException extends Exception{
 }

@@ -1,7 +1,7 @@
 package com.yuceturkomer.hw01;
 
 /**
- * Created by ömer on 21.2.2016.
+ * Homework class extended from AssignmentStudent
  */
 public class Homework extends AssignmentStudent {
     Homework(String assigName) {
