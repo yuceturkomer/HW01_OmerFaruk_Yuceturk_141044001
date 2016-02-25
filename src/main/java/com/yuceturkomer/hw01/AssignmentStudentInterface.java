@@ -18,7 +18,7 @@ public interface AssignmentStudentInterface {
 
     /**
      * Method that returns the string type of assignment type.
-     * @return
+     * @return Returns the string type of assignment type.
      */
     String getAssigType();
 }

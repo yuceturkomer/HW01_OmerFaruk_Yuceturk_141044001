@@ -7,6 +7,10 @@ public abstract class Document implements DocumentInterface {
     private String docName;
     protected String docType;
 
+    /**
+     * Document constructor
+     * @param docName
+     */
     public Document(String docName){
         setDocName(docName);
     }

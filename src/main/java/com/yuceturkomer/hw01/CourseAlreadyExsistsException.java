@@ -1,7 +1,7 @@
 package com.yuceturkomer.hw01;
 
 /**
- * Created by ömer on 24.2.2016.
+ * Can be thrown if course already exist
  */
 public class CourseAlreadyExsistsException extends Exception {
 }

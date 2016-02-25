@@ -1,7 +1,7 @@
 package com.yuceturkomer.hw01;
 
 /**
- * Created by ömer on 21.2.2016.
+ * Document class extended from Document
  */
 public class WhiteboardDescription extends Document {
     public WhiteboardDescription(String docName) {
