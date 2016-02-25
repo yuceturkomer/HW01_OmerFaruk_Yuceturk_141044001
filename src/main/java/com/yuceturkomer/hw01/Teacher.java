@@ -1,5 +1,7 @@
 package com.yuceturkomer.hw01;
 
+import javax.naming.NoPermissionException;
+
 /**
  * Created by ömer on 21.2.2016.
  */
@@ -8,13 +10,17 @@ public class Teacher extends User {
         super(nameSurname, mail, sysRef);
     }
 
-    public void addUser(User userToAdd) throws UserAlreadyExistsException {
+    public void addUser(User userToAdd) throws UserAlreadyExistsException, NoPermissionException {
+        if (userToAdd instanceof Admin)
+            throw new NoPermissionException("Cannot add admin\n");
         if (sysRef.userArrayList.contains(userToAdd))
             throw new UserAlreadyExistsException();
         sysRef.userArrayList.add(userToAdd);
     }
 
-    public User removeUser(User userToRemove) throws NoSuchUserException {
+    public User removeUser(User userToRemove) throws NoSuchUserException, NoPermissionException {
+        if (userToRemove instanceof Admin)
+            throw new NoPermissionException("Cannot remove admin\n");
         if (!sysRef.userArrayList.contains(userToRemove))
             throw new NoSuchUserException();
         sysRef.userArrayList.remove(userToRemove);

@@ -1,7 +1,7 @@
 package com.yuceturkomer.hw01;
 
 /**
- * Created by ömer on 25.2.2016.
+ * Can be thrown if an Assignment already exists in some struct.
  */
 public class AssignmentAlreadyExistsException extends Exception {
 }

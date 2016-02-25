@@ -21,17 +21,3 @@ public interface UserInterface {
 
 }
 
-/*
-    ***These methods gonna be moved to other classes***
-
-    boolean addUser(User theUser);
-
-    boolean removeUserByNameSurname(String userNameSurname);
-
-    boolean addCourse(Course theCourse);
-
-    boolean removeCourseByName(String courseName);
-
-    boolean addTutor(User theTutor);
-
-    boolean removeTutorByNumber(int tutorNumber);*/
