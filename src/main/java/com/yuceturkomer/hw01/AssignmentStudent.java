@@ -45,7 +45,7 @@ public abstract class AssignmentStudent implements AssignmentStudentInterface {
      */
     @Override
     public String toString() {
-        return "Assignment " + getAssigType() + getAssigName();
+        return "Assignment -- Type: " + getAssigType() + " -- Name:"+getAssigName();
     }
 
     /**

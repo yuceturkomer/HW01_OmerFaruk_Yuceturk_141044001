@@ -84,8 +84,8 @@ public abstract class User implements UserInterface {
      */
     @Override
     public String toString() {
-        return "User status: " + getClass().getSimpleName() + " User Name Surname: " + getNameSurname()
-                + " User mail: " + getMail();
+        return "User status: " + getClass().getSimpleName() + " -- User Name Surname: " + getNameSurname()
+                + " -- User mail: " + getMail();
     }
 
     /**

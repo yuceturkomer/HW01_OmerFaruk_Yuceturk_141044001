@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 /**
  * This is the sysstem path. This is a transit-ish thing
+ *
+ * @author Omer Faruk Yuceturk
  */
 
 public class CourseAutomationSystem {

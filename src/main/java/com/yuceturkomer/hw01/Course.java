@@ -128,6 +128,6 @@ public class Course {
      */
     @Override
     public String toString() {
-        return "Course name : " + getCourseName() + "Old course : " + Boolean.toString(isOldCourse());
+        return "Course name : " + getCourseName() + " -- Is an old course :" + Boolean.toString(isOldCourse());
     }
 }

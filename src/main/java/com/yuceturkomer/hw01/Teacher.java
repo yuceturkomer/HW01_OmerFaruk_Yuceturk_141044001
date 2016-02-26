@@ -201,7 +201,7 @@ public class Teacher extends User {
         if (!sysRef.courseArrayList.contains(courseRemovedFrom))
             throw new NoSuchCourseException();
         int courseIndex = sysRef.courseArrayList.indexOf(courseRemovedFrom);
-        if (sysRef.courseArrayList.get(courseIndex).teacherAssArrayList.contains(assigToRemove))
+        if (!sysRef.courseArrayList.get(courseIndex).teacherAssArrayList.contains(assigToRemove))
             throw new NoSuchTeacherAssignmentException();
         sysRef.courseArrayList.get(courseIndex).teacherAssArrayList.remove(assigToRemove);
         return assigToRemove;

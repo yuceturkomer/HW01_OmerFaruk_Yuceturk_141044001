@@ -29,7 +29,7 @@ public abstract class Document implements DocumentInterface {
 
     @Override
     public String toString() {
-        return "Document" + getDocType() +getDocName();
+        return "Document -- Type: " + getDocType()+" -- Name: " +getDocName();
     }
 
     @Override

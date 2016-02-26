@@ -53,4 +53,8 @@ public class AssignmentTeacher {
 
     }
 
+    @Override
+    public String toString() {
+        return "Teacher assignment array. Name: " + getAssigName();
+    }
 }

@@ -14,14 +14,14 @@ public class AdminTest {
 
     @Before
     public void setUp() throws Exception {
-        System.out.println("Test method is going to be called");
+        System.out.println("Admin class test method is going to be called");
         theSys = new CourseAutomationSystem();
         sysAdmin = new Admin("OmerYuceturk", "oyuceturk@gtu.edu.tr", theSys);
     }
 
     @After
     public void tearDown() throws Exception {
-        System.out.println("Test method is called");
+        System.out.println("Admin class test method is called and ended");
     }
 
     @Test
@@ -56,8 +56,8 @@ public class AdminTest {
 
     @Test
     public void testListUserCourses() throws Exception {
-        Student std1 = new Student("ogrenci1", "ogrenci1mail", theSys, 141000141);
-        Teacher teacher1 = new Teacher("YSA", "akgul@gyte.edu.tr", theSys);
-        Course course1 = new Course("course1", false, teacher1);
+        Course course1 = new Course("course1", false, new Teacher("YSA", "akgul@gyte.edu.tr", theSys));
+        sysAdmin.addCourse(course1);
+        sysAdmin.listUserCourses();
     }
 }
